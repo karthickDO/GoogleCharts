@@ -19,8 +19,8 @@ export class DrawChart {
     //default options that makes it look good
     _getDefaultOptions(options){
         var _this = this;
-        var option = new options[_this.type](options);
-        return option;
+        var options1 = new [_this.type](options);
+        return options1;
     }
 
     _init(options) {
@@ -29,9 +29,9 @@ export class DrawChart {
         options.chartoptions =  Object.assign(options.chartoptions , _this.chartoptions);
         GoogleCharts.load(drawChart,this.loadPackage);
     
-        /* if(!options.chartoptions){
+        /* if(Object.entries(options.chartoptions).length === 0 && options.chartoptions.constructor === Object){
             this.chartoptions = this._getDefaultOptions(options);
-        } */
+        }  */
 
         function drawChart() {
             const data =  GoogleCharts.api.visualization.arrayToDataTable(_this.data,_this.isCandleStick);
