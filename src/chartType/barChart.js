@@ -12,13 +12,13 @@ export class BarChart extends DrawChart {
         chart: {
             subtitle: options.subtitle,
         },
-        bars: 'vertical',
+        bars: options.chartoptions.bartype || 'vertical',
         vAxis: {format: 'decimal'},
         colors: ['#1b9e77', '#d95f02', '#7570b3'],
         bar: { groupWidth: '75%' },
         isStacked: options.isStacked || false
     };
-    // options.chartoptions = chartoptions;
+     options.chartoptions = chartoptions;
     super._init(options); 
    }
 }

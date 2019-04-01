@@ -9,9 +9,8 @@ export class ScatterChart extends DrawChart {
    _init(options){
        var _this= this;
     var chartoptions = {
-        title: 'Age vs. Weight comparison',
-          hAxis: {title: 'Age', minValue: 0, maxValue: 15},
-          vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+          hAxis: {title: options.hAxistitle || '', minValue: 0, maxValue: 15},
+          vAxis: {title: options.vAxistitle || '', minValue: 0, maxValue: 15},
           legend: 'none'
     };
     options.chartoptions = chartoptions;

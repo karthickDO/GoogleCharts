@@ -12,7 +12,7 @@ export class OrgChart extends DrawChart {
        var _this= this;
 
     var chartoptions = {
-        
+        allowHtml:true
     };
 
      options.chartoptions = chartoptions;  

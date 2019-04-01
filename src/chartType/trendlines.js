@@ -9,8 +9,8 @@ export class Trendline extends DrawChart {
     _init(options) {
         var _this = this;
         var chartoptions = {
-            hAxis: { title: 'Diameter' },
-            vAxis: { title: 'Age' },
+            hAxis: { title: options.hAxistitle || ''  },
+            vAxis: { title: options.vAxistitle || '' },
             legend: 'none',
             trendlines: { 0: {} }
         };

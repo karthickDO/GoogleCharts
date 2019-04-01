@@ -8,7 +8,8 @@ export class CandlestickChart extends DrawChart {
     
    _init(options){
        var _this= this;
-    var chartoptions = {   
+    var chartoptions = {  
+        legend:'none', 
         isCandleStick :true     
     };
      options.chartoptions = chartoptions;

@@ -10,7 +10,7 @@ export class Calendar extends DrawChart {
    _init(options){
        var _this= this;
     var chartoptions = {
-     
+            
     };
      options.chartoptions = chartoptions;
     super._init(options); 

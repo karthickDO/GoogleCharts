@@ -9,10 +9,10 @@ export class ComboChart extends DrawChart {
    _init(options){
        var _this= this;
     var chartoptions = {
-        vAxis: {title: 'Cups'},
-          hAxis: {title: 'Month'},
+        vAxis: {title: options.vAxistitle || ''},
+          hAxis: {title: options.hAxistitle || ''},
           seriesType: 'bars',
-          series: {1: {type: 'line'}}
+          series: {1: {type: options.series.type || 'line'}}
     };
      options.chartoptions = chartoptions;
     super._init(options); 

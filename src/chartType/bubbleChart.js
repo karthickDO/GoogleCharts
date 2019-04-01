@@ -9,8 +9,8 @@ export class BubbleChart extends DrawChart {
    _init(options){
        var _this= this;
     var chartoptions = {
-        hAxis: {title: 'Life Expectancy'},
-        vAxis: {title: 'Fertility Rate'},
+        hAxis: {title: options.hAxistitle || ''},
+        vAxis: {title: options.vAxistitle || ''},
         bubble: {textStyle: {fontSize: options.fontSize|| 11}}
     };
      options.chartoptions = chartoptions;

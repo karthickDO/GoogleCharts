@@ -10,7 +10,6 @@ export class AnnotationChart extends DrawChart {
     
    _init(options){
        var _this= this;
-       this.$container = $("#chart_div");
     var chartoptions = {
         displayAnnotations: true
     };

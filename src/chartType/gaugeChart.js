@@ -15,15 +15,17 @@ export class Gauge extends DrawChart {
             minorTicks: 5
         };
         options.chartoptions = chartoptions;
-        GoogleCharts.load(drawChart, this.loadPackage);
+        super._init(options); 
+      
+        /* GoogleCharts.load(drawChart, this.loadPackage);
 
         function drawChart() {
             const data = GoogleCharts.api.visualization.arrayToDataTable(_this.data, _this.isCandleStick);
             _this._renderChart(data, options);
-        }
+        } */
     }
 
-    _renderChart(data, options) {
+   /*  _renderChart(data, options) {
         var _this = this;
         _this.chart = new GoogleCharts.api.visualization[_this.type](document.getElementById('chart_div'));
         _this.chart.draw(data, options.chartoptions);
@@ -39,6 +41,6 @@ export class Gauge extends DrawChart {
             data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
             _this.chart.draw(data, options);
           }, 26000);
-        }
+        } */
     
 }

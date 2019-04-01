@@ -8,8 +8,9 @@ export class PieChart extends DrawChart {
     
    _init(options){
        var _this= this;
+       var piehole = (options.originaltype == 'DonutChart') ? options.piehole : '0';
     var chartoptions = {
-        title: _this.title,
+        pieHole: piehole,
     };
     options.chartoptions = chartoptions;
     super._init(options); 

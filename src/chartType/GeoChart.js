@@ -13,15 +13,16 @@ export class GeoChart extends DrawChart {
            
         };
         options.chartoptions = chartoptions;
-        GoogleCharts.load(drawChart, options.loadPackage);
+        super._init(options); 
+        /* GoogleCharts.load(drawChart, options.loadPackage);
         function drawChart() {
             const data = GoogleCharts.api.visualization.arrayToDataTable(_this.data, options.chartoptions.isCandleStick);
             _this._renderChart(data, options);
-        }
+        } */
     }
-    _renderChart(data, options) {
+    /* _renderChart(data, options) {
         var _this = this;
         _this.chart = new GoogleCharts.api.visualization.GeoChart(document.getElementById('chart_div'));
         _this.chart.draw(data, options.chartoptions);
-    }
+    } */
 }
