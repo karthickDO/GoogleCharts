@@ -423,7 +423,7 @@ export const ChartTypes =[
     {displayName:"Donut Chart",value:"DonutChart",dataLength:"2",dataFormat:"arrayToDataTable",packages:"corechart"},
     {displayName:"Gantt Chart",value:"Gantt",dataLength:"7",dataFormat:"DataTable",packages:"gantt"},
     {displayName:"Gauge Charts",value:"Gauge",dataLength:"2",dataFormat:"arrayToDataTable",packages:"gauge"},
-    {displayName:"GeoChart",value:"GeoChart",dataLength:"3",dataFormat:"arrayToDataTable",packages:"{}"},
+    /* {displayName:"GeoChart",value:"GeoChart",dataLength:"3",dataFormat:"arrayToDataTable",packages:"{}"}, */
     {displayName:"Histogram",value:"Histogram",dataLength:"3",dataFormat:"arrayToDataTable",packages:"corechart"},
     {displayName:"Line Chart",value:"LineChart",dataLength:"4",dataFormat:"arrayToDataTable",packages:"corechart"},
     /* {displayName:"Map",value:"Map",dataLength:"2",dataFormat:"arrayToDataTable",packages:"{ 'packages': ['map'] }"}, */

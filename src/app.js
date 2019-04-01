@@ -38,7 +38,7 @@ var charttype = 'AnnotationChart';
 $(document).ready(function () {
  
 /* $('button').click(function () { twoArrayData*/
-  var selectbox = "<select name='charttype' id='charttype'>";
+  var selectbox = "<select name='charttype' id='charttype' class='select-control'>";
   var option2 = "";
 chartData.ChartTypes.forEach(item => {
   /* if(chartData.ChartInputData[charttype+'Data'][0].length > 2 && item.dataLength > 2){ */
