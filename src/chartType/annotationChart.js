@@ -1,0 +1,55 @@
+import { GoogleCharts } from 'google-charts';
+import { DrawChart } from '../chart.js';
+
+export class AnnotationChart extends DrawChart {
+    constructor(options) {
+        super(options);
+        this.loadPackage = options.loadPackage || null;
+        this._init(options);
+    }  
+    
+   _init(options){
+       var _this= this;
+       this.$container = $("#chart_div");
+    var chartoptions = {
+        displayAnnotations: true
+    };
+
+    /* options.chartoptions = chartoptions;
+    GoogleCharts.load(drawChart, _this.loadPackage);
+    
+     function drawChart() {
+     var data = new GoogleCharts.api.visualization.DataTable();
+        data.addColumn('date', 'Date');
+        data.addColumn('number', 'Kepler-22b mission');
+        data.addColumn('string', 'Kepler title');
+        data.addColumn('string', 'Kepler text');
+        data.addColumn('number', 'Gliese 163 mission');
+        data.addColumn('string', 'Gliese title');
+        data.addColumn('string', 'Gliese text');
+        data.addRows([
+          [new Date(2314, 2, 15), 12400, undefined, undefined,
+                                  10645, undefined, undefined],
+          [new Date(2314, 2, 16), 24045, 'Lalibertines', 'First encounter',
+                                  12374, undefined, undefined],
+          [new Date(2314, 2, 17), 35022, 'Lalibertines', 'They are very tall',
+                                  15766, 'Gallantors', 'First Encounter'],
+          [new Date(2314, 2, 18), 12284, 'Lalibertines', 'Attack on our crew!',
+                                  34334, 'Gallantors', 'Statement of shared principles'],
+          [new Date(2314, 2, 19), 8476, 'Lalibertines', 'Heavy casualties',
+                                  66467, 'Gallantors', 'Mysteries revealed'],
+          [new Date(2314, 2, 20), 0, 'Lalibertines', 'All crew lost',
+                                  79463, 'Gallantors', 'Omniscience achieved']
+        ]);
+        
+        
+        _this._renderChart(data, options);     */
+        options.chartoptions = chartoptions;
+        super._init(options); 
+    }
+   
+  /*  _renderChart(data, options){
+    super. _renderChart(data, options);
+   } */
+
+}
