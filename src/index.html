@@ -25,22 +25,32 @@
         float: left;
         margin-right: 20px;
     }
+
+    .label-control{
+        float:left;
+        margin-right:10px;
+        position:relative;
+        top:10px;
+        font-weight:bold;
+    }
     
     </style>
 </head>
 <body>
-<script src="http://localhost:8080/build/app.bundle.js"></script>
 <div id="select-box" style="margin-bottom:20px;display: inline-block;">
+
+    <label class="label-control">X-axis</label>
     <select name="xaxis" id="xaxis" class='select-control'>
-        <option value="Hour">Hour</option>
+        <!-- <option value="Hour">Hour</option> -->
         <option value="Date">Date</option>
-        <option value="DateTime">Date Time</option>
+        <!-- <option value="DateTime">Date Time</option> -->
         <option value="Week">Week</option>
-        <option value="Season">Season</option>
+        <!--<option value="Season">Season</option> -->
         <option value="Month">Month</option>
         <option value="Year">Year</option>
     </select>
 </div>
 <div id="chart_div" style="width: 900px; height: 500px;"></div>
+<script src="http://localhost:8080/build/app.bundle.js"></script>
 </body>
 </html>
