@@ -244,12 +244,19 @@ export const ChartInputData = {
         ['Ultrasaurus (ultra lizard)', 30.5],
         ['Velociraptor (swift robber)', 1.8]
     ],
-    LineChartData: [
+    LineChartDashedData: [
         ['Year', 'Sales', 'Expenses'],
         ['2004', 1000, 400],
         ['2005', 1170, 460],
         ['2006', 660, 1120],
         ['2007', 1030, 540]
+    ],
+    LineChartData: [
+        ['Year', 'Monthly', 'weekly','Daily'],
+        ['2004', 1000, 400,240],
+        ['2005', 1170, 460,500],
+        ['2006', 660, 1120,700],
+        ['2007', 1030, 540,800]
     ],
     TreeMapData: [
         ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
@@ -431,7 +438,12 @@ export const ChartOptionsData = {
         legend: { position: 'none' },
     },
     LineChartData: {
-        title: 'Active Users',
+        //title: 'Active Users',
+        legend: { position: 'right' },
+        colors: ['black', 'blue', 'red', 'green', 'yellow', 'gray'],
+    },
+    LineChartDashedData: {
+        //title: 'Active Users',
         legend: { position: 'right' },
         colors: ['black', 'blue', 'red', 'green', 'yellow', 'gray'],
         series: {
@@ -469,7 +481,7 @@ export const ChartOptionsData = {
         }
     },
     DonutChartData: {
-        title: 'Sessions by device',
+        //title: 'Sessions by device',
         pieHole: 0.7,
         legend: { position: "none" },
         pieSliceText:"none"

@@ -1,133 +1,646 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Google visualization</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
-    <style>
-        .select-control {
-            display: block;
-            height: 34px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555;
-            background-color: #fff;
-            background-image: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-            float: left;
-            margin-right: 20px;
-        }
-
-        .label-control {
-            float: left;
-            margin-right: 10px;
-            position: relative;
-            top: 10px;
-            font-weight: bold;
-        }
-
-        .card #legend {
-            text-align: center;
-        }
-
-        .card #legend li {
-            display: inline-block;
-            padding: 0 8px;
-            text-align: center;
-        }
-
-        .legend-icon {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.0.2.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div id="select-box" style="margin-bottom:20px;display: inline-block;">
-            <label class="label-control">X-axis</label>
-            <select name="xaxis" id="xaxis" class='select-control'>
-                <!-- <option value="Hour">Hour</option> -->
-                <option value="Date">Date</option>
-                <!-- <option value="DateTime">Date Time</option> -->
-                <option value="Week">Week</option>
-                <!--<option value="Season">Season</option> -->
-                <option value="Month">Month</option>
-                <option value="Year">Year</option>
-            </select>
-        </div>
+<script src="http://localhost:8080/build/app.bundle.js"></script>
+<div id="select-box" style="margin-top:20px;margin-bottom:20px;display: none;">
+        <label class="label-control">X-axis</label>
+        <select name="xaxis" id="xaxis" class='select-control-border'>
+            <!-- <option value="Hour">Hour</option> -->
+            <option value="Date">Date</option>
+            <!-- <option value="DateTime">Date Time</option> -->
+            <option value="Week">Week</option>
+            <!--<option value="Season">Season</option> -->
+            <option value="Month">Month</option>
+            <option value="Year">Year</option>
+        </select>
+</div>
+<div id="chart_div" style="width: 900px; height: 500px;display: none;"></div>
 
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="chart_div" style="width: 100%; height: 500px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="pie-chart" style="width: 100%; height: 500px;"></div>
-                        <div id="legend"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="column-stacked" style="width: 100%; height: 500px;"></div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="Geo-chart" style="width: 100%; height: 500px;"></div>
+
+
+<div class="ga-container">
+    <div class="ga-card-container ga-card-width-672">
+        <h1 class="ga-card-outer-title">Google Analytics Home</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-tab-container">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active">
+                        <a href="#users" role="tab" data-toggle="tab">
+                            <p class="ga-tab-title">Users</p>
+                            <p class="ga-tab-value">25K</p>
+                            <p class="ga-tab-growth ga-growtn-decrease">
+                                <span class="arrow">
+                                    <span class="line"></span>
+                                    <span class="point"></span>
+                                    </span> 24.6%</p>
+                        </a>
+                    </li>
+                    <li><a href="#revenue" role="tab" data-toggle="tab">
+                            <p class="ga-tab-title">Revenue</p>
+                            <p class="ga-tab-value">$72K</p>
+                            <p class="ga-tab-growth ga-growtn-decrease">
+                                <span class="arrow">
+                                    <span class="line"></span>
+                                    <span class="point"></span>
+                                </span> 48.7%</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#conversionrate" role="tab" data-toggle="tab">
+                            <p class="ga-tab-title">Conversion Rate</p>
+                            <p class="ga-tab-value">1.06%</p>
+                            <p class="ga-tab-growth ga-growtn-decrease">
+                                <span class="arrow">
+                                    <span class="line"></span>
+                                    <span class="point"></span>
+                                </span> 20.3%</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sessions" role="tab" data-toggle="tab">
+                            <p class="ga-tab-title">Sessions</p>
+                            <p class="ga-tab-value">33K</p>
+                            <p class="ga-tab-growth ga-growtn-decrease">
+                                <span class="arrow">
+                                    <span class="line"></span>
+                                    <span class="point"></span>
+                                </span> 26.8%</p>
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="users">
+                        <div id="Line-chart-dashed" style="width: 100%; height: 330px;"></div>
                     </div>
+                    <!-- <div class="tab-pane fade" id="sessions">
+                        <div id="Line-chart-dashed" style="width: 100%; height: 300px;"></div>
+                    </div>
+                    <div class="tab-pane fade" id="bouncerate">
+                        <div id="Line-chart-dashed" style="width: 100%; height: 300px;"></div>
+                    </div>
+                    <div class="tab-pane fade" id="sessiondurration">
+                        <div id="Line-chart-dashed" style="width: 100%; height: 300px;"></div>
+                    </div> -->
+                </div>    
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">Audience Overview</span> <i class="arrow-icon"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="Line-chart" style="width: 100%; height: 500px;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="Table-chart" style="width: 100%; height: 500px;"></div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-    <script src="http://localhost:8080/build/app.bundle.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <div class="ga-card-container ga-bg-blue">
+        <h1 class="ga-card-outer-title" ></h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text">
+                            Active Users right now
+                        </div>
+                        <div class="ga-card-date-range ga-hide" aria-hidden="true">
+                            ending 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+        
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">Real-time report</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ga-card-container ga-width-100-percent">
+        <h1 class="ga-card-outer-title">How do you acquire users?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-tab-container">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active">
+                        <a href="#traffic" role="tab" data-toggle="tab">
+                            Traffic Channel
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#source" role="tab" data-toggle="tab">
+                            Source / Medium
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#referral" role="tab" data-toggle="tab">
+                            Referrals
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="traffic">
+                        <div id="column-stacked" style="width: 100%; height: 300px;"></div>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="source">
+                        <div id="column-stacked" style="width: 100%; height: 300px;"></div>
+                    </div>
+                    <div class="tab-pane fade" id="referral">
+                        <div id="column-stacked" style="width: 100%; height: 300px;"></div>
+                    </div> -->
+                </div>    
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">acquisition report</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ga-card-container">
+        <h1 class="ga-card-outer-title" >When do your users visit?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text">
+                            Users by time of day
+                        </div>
+                        <div class="ga-card-date-range ga-hide" aria-hidden="true">
+                            ending 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+        
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ga-card-container">
+        <h1 class="ga-card-outer-title" >Where are your users?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text">
+                        Sessions by country
+                        </div>
+                        <div class="ga-card-date-range ga-hide" aria-hidden="true">
+                            ending 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+                        <div id="Geo-chart" style="width: 100%;height: 300px"></div>
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">Location Overview</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ga-card-container">
+        <h1 class="ga-card-outer-title" >What are your top devices?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text">
+                            Sessions by device
+                        </div>
+                        <div class="ga-card-date-range ga-hide" aria-hidden="true">
+                            ending 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+                    <div id="pie-chart" style="width: 100%;"></div>
+                    <div id="legend"></div>
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">Mobile Overview</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ga-card-container ga-card-width-504">
+        <h1 class="ga-card-outer-title" >How are your active users trending over time?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text">
+                            Active Users
+                        </div>
+                        <div class="ga-card-date-range ga-hide" aria-hidden="true">
+                            ending 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+                        <div id="Line-chart" style="width: 100%; height: 380px;"></div>
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">Active users report</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="ga-card-container ga-card-width-504">
+        <h1 class="ga-card-outer-title" >How well do you retain users?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text">
+                            User retention
+                        </div>
+                        <div class="ga-card-date-range ga-hide" aria-hidden="true">
+                            ending 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+                    <div id="column-stacked" style="width: 100%; height:350px;"></div>
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">cohort analysis report</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="ga-card-container ga-card-width-504">
+        <h1 class="ga-card-outer-title" >What pages do your users visit?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header ga-page-border-bottom">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text ga-card-page">
+                            Page
+                        </div>
+                        <div class="ga-card-date-range ga-card-pageview">
+                            Pageviews 
+                        </div>
+                        <div class="ga-card-date-range ga-card-pagevalue" >
+                            Page Value 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+                    <div class="ga-pages-url-wrapper">
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                /index.php
+                            </div>
+                            <div class="ga-row-pageview">
+                                12,288
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                $2.75
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">Pages report</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="ga-card-container ga-card-width-504">
+        <h1 class="ga-card-outer-title" >How are you performing against goals?</h1>
+        <div class="ga-card-wrapper">
+            <div class="ga-card-header-and-content">
+                <div class="ga-card-header">
+                    <div class="ga-card-header-row">
+                        <div class="ga-card-title-text ga-card-goal">
+                            <p>Goal Completions</p>
+                            <p class="ga-big-font">7.9K</p>
+                        </div>
+                        <div class="ga-card-date-range ga-card-golevalue">
+                            <p>Goal Value</p>
+                            <p  class="ga-big-font">$0.00</p>
+                        </div>
+                        <div class="ga-card-date-range ga-card-golerate" >
+                            <p>Gole Conversion Rate</p>
+                            <p  class="ga-big-font">24.2%</p>
+                        </div>
+                    </div>
+                    <div class="ga-card-header-row ga-goal-wrapper ga-page-border-bottom">
+                        <div class="ga-card-title-text ga-card-page">
+                            Goals
+                        </div>
+                        <div class="ga-card-date-range ga-card-pageview">
+                            Conversion rate 
+                        </div>
+                        <div class="ga-card-date-range ga-card-pagevalue" >
+                            Completions 
+                        </div>
+                    </div>
+                </div>
+                <div class="ga-card-body">
+                    <div class="ga-pages-url-wrapper ga-goal-wrapper">
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                2+ Minutes
+                            </div>
+                            <div class="ga-row-pageview">
+                                <div class="ga-status-bar-outer">
+                                    <div class="ga-status-bar-inner"></div>
+                                </div>
+                            </div>
+                            <div class="ga-row-pagevalue">
+                                7,222
+                            </div>
+                        </div>
+                        <div class="ga-item-row">
+                            <div class="ga-row-page">
+                                Conversion
+                            </div>
+                            <div class="ga-row-pageview">
+                                <div class="ga-status-bar-outer">
+                                    <div class="ga-status-bar-inner"></div>
+                                </div>
+                            </div>
+                            <div class="ga-row-pagevalue">
+                               390
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ga-card-footer">
+                <div class="ga-footer-dropdown">
+                    <select name="xaxis" id="xaxis" class='select-control'>
+                        <option value="Hour">Hour</option>
+                        <option value="Date">Date</option>
+                        <option value="DateTime">Date Time</option>
+                        <option value="Week">Week</option>
+                        <option value="Season">Season</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+                <div class="ga-footer-link-area">
+                    <a class="ga-text-link ga-link-button" href="#/report/visitors-geo/a137817737w198345668p193010996/">
+                        <span class="ga-text-data">cohort analysis report</span> <i class="arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
 </body>
 
 </html>

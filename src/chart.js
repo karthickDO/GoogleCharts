@@ -7,7 +7,7 @@ export class DrawChart {
         this.data = options.data;
         this.loadPackage = options.loadPackage || null;  
         this.isCandleStick = options.chartoptions.isCandleStick || null;  
-        this.container=options.container||"chart_div";
+        this.container= options.container || "chart_div" ;
 
         this._init(options);
     }

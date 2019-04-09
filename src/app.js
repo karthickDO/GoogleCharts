@@ -71,10 +71,20 @@ var lineChartObj = {
   type:"LineChart",
   data: chartData.ChartInputData.LineChartData,
   chartoptions: chartData.ChartOptionsData.LineChartData,
-  
   container:"Line-chart"
 }
 new DrawChart(lineChartObj);
+
+// linechart
+var lineChartObj = {
+  type:"LineChart",
+  data: chartData.ChartInputData.LineChartDashedData,
+  chartoptions: chartData.ChartOptionsData.LineChartDashedData,
+  container:"Line-chart-dashed",
+
+}
+new DrawChart(lineChartObj);
+
 
 
 // linechart
@@ -95,7 +105,7 @@ var charttype = 'AnnotationChart';
 var chartObj;
 var getchartObj;
 $(document).ready(function () {
-  var selectbox = "<label class='label-control'>Chart Type</label><select name='charttype' id='charttype' class='select-control'>";
+  var selectbox = "<label class='label-control'>Chart Type</label><select name='charttype' id='charttype' class='select-control-border'>";
   var option2 = "";
   chartData.ChartTypes.forEach(item => {
     var selected = (item.value=="BarChart") ? 'selected' : '';
