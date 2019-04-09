@@ -24,17 +24,12 @@ export const ChartInputData = {
         [new Date(2317, 2, 15), 1030, 540]
     ],
 
-
- 
-
-
     BarChartData: [
         ['Year', 'Sales', 'Expenses', 'Profit'],
-        ['2014', 1000, 400, 200],
-        ['2014', 1000, 400, 200],
-        ['2015', 1170, 460, 250],
-        ['2016', 660, 1120, 300],
-        ['2017', 1030, 540, 350]
+        ['2014', 300, 400, 200],
+        ['2015', 356, 460, 250],
+        ['2016', 290, 378, 300],
+        ['2017', 400, 540, 350]
     ],
 
 
@@ -42,7 +37,7 @@ export const ChartInputData = {
         ['Date', 'Sales', 'Expenses', 'Profit'],
         [new Date(2019, 2, 15), 1000, 400, 200],
         [new Date(2019, 2, 15), 1000, 400, 200],
-       [new Date(2019, 2, 15), 1000, 400, 200],
+        [new Date(2019, 2, 15), 1000, 400, 200],
         [new Date(2019, 4, 15), 1170, 460, 200],
         [new Date(2019, 5, 15), 660, 1120, 200],
         [new Date(2019, 6, 15), 1030, 540, 200],
@@ -66,11 +61,11 @@ export const ChartInputData = {
         [new Date(2019, 2, 4), 1030, 540, 200],
         [new Date(2019, 2, 5), 1000, 400, 200],
         [new Date(2019, 2, 6), 1170, 460, 200],
-        
+
         [new Date(2019, 2, 11), 660, 1120, 200],
         [new Date(2019, 2, 12), 1030, 540, 200],
         [new Date(2019, 2, 13), 1000, 400, 200],
-       
+
         [new Date(2019, 2, 18), 1170, 460, 200],
         [new Date(2019, 2, 19), 660, 1120, 200],
         [new Date(2019, 2, 20), 1030, 540, 200]
@@ -78,10 +73,10 @@ export const ChartInputData = {
 
     BarChartTimeData: [
         ['Date', 'Sales', 'Expenses', 'Profit'],
-    [{v: [8, 0, 0], f: '8 am'},1000, 400, 200],
-        [{v: [9, 0, 0], f: '9 am'},900, 433, 200],
-        [{v: [10, 0, 0], f:'10 am'},876, 400, 200],
-        [{v: [11, 0, 0], f: '11 am'}, 567, 400, 200]
+        [{ v: [8, 0, 0], f: '8 am' }, 1000, 400, 200],
+        [{ v: [9, 0, 0], f: '9 am' }, 900, 433, 200],
+        [{ v: [10, 0, 0], f: '10 am' }, 876, 400, 200],
+        [{ v: [11, 0, 0], f: '11 am' }, 567, 400, 200]
     ],
 
 
@@ -89,10 +84,12 @@ export const ChartInputData = {
 
     ColumnChartData: [
         ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-            'Western', 'Literature', { role: 'annotation' }],
-        ['2010', 10, 24, 20, 32, 18, 5, ''],
-        ['2020', 16, 22, 23, 30, 16, 9, ''],
-        ['2030', 28, 19, 29, 30, 12, 13, '']
+            'Western'],
+        ['2015', 28, 19, 29, 30, 12],
+        ['2020', 16, 22, 23, 30, 16],
+        ['2025', 28, 19, 29, 30, 12],
+        ['2030', 28, 19, 29, 30, 12],
+        ['2035', 28, 19, 29, 30, 12]
     ],
 
 
@@ -144,12 +141,10 @@ export const ChartInputData = {
         ['Sleep', 7]
     ],
     DonutChartData: [
-        ['Task', 'Hours per Day'],
-        ['Work', 11],
-        ['Eat', 2],
-        ['Commute', 2],
-        ['Watch TV', 2],
-        ['Sleep', 7]
+        ['Device', 'usage'],
+        ['Mobile', 11],
+        ['Desktop', 2],
+        ['Tablet', 2]
     ],
     ScatterChartData: [
         ['Task', 'Hours per Day'],
@@ -334,11 +329,15 @@ export const ChartInputData = {
     ['cats eat mice'],
     ],
     TableData: [
-        ['Name', 'Salary', 'Full Time Employee'],
-        ['Mike', { v: 10000, f: '$10,000' }, true],
-        ['Jim', { v: 8000, f: '$8,000' }, false],
-        ['Alice', { v: 12500, f: '$12,500' }, true],
-        ['Bob', { v: 7000, f: '$7,000' }, true]
+        ['Pages', 'Pageviews', 'page value'],
+        ['/index', '3.787', '$345'],
+        ['/creed-fragrances-250ml-flacons', '3,456', '$345'],
+        ['/press', '3,856', '$345'],
+        ['/house-of-creed-history-and-lineage', '2,456', '$345'],
+        ['/creed-mens-colognes-perfumes-fragrances', '3,496', '$345'],
+        ['/index', '3,456', '$385'],
+        ['/blog', '1,756', '$945'],
+        ['/blog/creed-march-madness', '3,898', '$45']
     ],
     CalendarData: [
         ['Date', 'Won/Loss'],
@@ -367,14 +366,25 @@ export const ChartOptionsData = {
         vAxis: { minValue: 0 }
     },
     BarChartData: {
-        title: "Density of Precious Metals, in g/cm^3",
-        bar: { groupWidth: "95%" },
+        bar: { groupWidth: "75%" },
         legend: { position: "none" },
+        isStacked: true
+        
     },
     ColumnChartData: {
-        title: "Density of Precious Metals, in g/cm^3",
-        bar: { groupWidth: "95%" },
-        legend: { position: "none" },
+        bar: { groupWidth: "90%" },
+        legend: { position: "bottom" },
+        axes: {
+            y: {
+                1: { side: 'right' } // Top x-axis.
+            }
+        },
+        isStacked: true,
+        // series: {
+        //     0: {targetAxisIndex: 0},
+        //     1: {targetAxisIndex: 1},
+        //     2: {targetAxisIndex: 1}
+        // }​   
     },
     ComboChartData: {
         title: 'Monthly Coffee Production by Country',
@@ -384,7 +394,8 @@ export const ChartOptionsData = {
         series: { 5: { type: 'line' } }
     },
     PieChartData: {
-        title: 'My Daily Activities'
+        title: 'My Daily Activities',
+        legend: { position: 'left' }
     },
     ScatterChartData: {
         title: 'Age vs. Weight comparison',
@@ -412,15 +423,20 @@ export const ChartOptionsData = {
         legend: 'none',
         isCandleStick: true
     },
-    GeoChartData: {},
+    GeoChartData: {
+        title: 'Sessions by Country',
+    },
     HistogramData: {
         title: 'Lengths of dinosaurs, in meters',
         legend: { position: 'none' },
     },
     LineChartData: {
-        title: 'Company Performance',
-        curveType: 'function',
-        legend: { position: 'bottom' }
+        title: 'Active Users',
+        legend: { position: 'right' },
+        colors: ['black', 'blue', 'red', 'green', 'yellow', 'gray'],
+        series: {
+            0: { lineDashStyle: [2, 2] }
+        },
     },
     TreeMapData: {
         minColor: '#f00',
@@ -453,8 +469,10 @@ export const ChartOptionsData = {
         }
     },
     DonutChartData: {
-        title: 'My Daily Activities',
-        pieHole: 0.4,
+        title: 'Sessions by device',
+        pieHole: 0.7,
+        legend: { position: "none" },
+        pieSliceText:"none"
     },
     WaterfallChartData: {
         legend: 'none',
@@ -465,7 +483,7 @@ export const ChartOptionsData = {
         },
         isCandleStick: true
     },
-    TableData: { showRowNumber: true, width: '100%', height: '100%' },
+    TableData: { showRowNumber: false, width: '100%', height: '100%' },
     CalendarData: {
         title: "Red Sox Attendance",
         height: 350,
@@ -480,7 +498,7 @@ export const ChartTypes = [
     { displayName: "Calendar Chart", value: "Calendar", dataLength: "2", dataFormat: "DataTable", packages: "calendar" },
     { displayName: "Candlestick Chart", value: "CandlestickChart", dataLength: "5", dataFormat: "arrayToDataTable", packages: "corechart" },
     { displayName: "Waterfall chart", value: "WaterfallChart", dataLength: "5", dataFormat: "arrayToDataTable", packages: "corechart" },
-    { displayName: "Column Chart", value: "ColumnChart", dataLength: "3", dataFormat: "arrayToDataTable", packages: "corechart" },
+    { displayName: "Column Chart", value: "ColumnChart", dataLength: "3", dataFormat: "arrayToDataTable", packages: "bar" },
     { displayName: "Combo Chart", value: "ComboChart", dataLength: "7", dataFormat: "arrayToDataTable", packages: "corechart" },
     { displayName: "Pie Chart", value: "PieChart", dataLength: "2", dataFormat: "arrayToDataTable", packages: "corechart" },
     { displayName: "Donut Chart", value: "DonutChart", dataLength: "2", dataFormat: "arrayToDataTable", packages: "corechart" },

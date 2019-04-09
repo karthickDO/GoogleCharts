@@ -23,6 +23,7 @@ import { Gauge } from './chartType/gaugeChart';
 import { GeoChart } from './chartType/GeoChart';
 import { calenderChart } from './chartType/calendarChart';
 
+
 // Default load  Barchart
 var chartObj = {
   type: "BarChart",
@@ -30,7 +31,64 @@ var chartObj = {
   chartoptions: chartData.ChartOptionsData.BarChartData,
 }
 
-new BarChart(chartObj);
+new DrawChart(chartObj);
+
+
+// Donut chart
+var DonutChartObj = {
+  type:"PieChart",
+  data: chartData.ChartInputData.DonutChartData,
+  chartoptions: chartData.ChartOptionsData.DonutChartData,
+  container:"pie-chart",
+  legend:true
+}
+new DrawChart(DonutChartObj);
+
+
+// Column Stacked Chart
+var columnStackedObj = {
+  type:"ColumnChart",
+  data: chartData.ChartInputData.ColumnChartData,
+  chartoptions: chartData.ChartOptionsData.ColumnChartData,
+  container:"column-stacked",
+}
+new DrawChart(columnStackedObj);
+
+
+// Geo chart
+var geoChartObj = {
+  type:"ColumnChart",
+  data: chartData.ChartInputData.GeoChartData,
+  chartoptions: chartData.ChartOptionsData.GeoChartData,
+  container:"Geo-chart",
+  loadPackage: { 'packages': ['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY' },
+}
+new GeoChart(geoChartObj);
+
+
+// linechart
+var lineChartObj = {
+  type:"LineChart",
+  data: chartData.ChartInputData.LineChartData,
+  chartoptions: chartData.ChartOptionsData.LineChartData,
+  
+  container:"Line-chart"
+}
+new DrawChart(lineChartObj);
+
+
+// linechart
+var tabelChartObj = {
+  type:"Table",
+  data: chartData.ChartInputData.TableData,
+  chartoptions: chartData.ChartOptionsData.TableData,
+  loadPackage: { 'packages': ['table']},
+  container:"Table-chart"
+}
+new DrawChart(tabelChartObj);
+
+
+
 
 
 var charttype = 'AnnotationChart';
@@ -40,7 +98,6 @@ $(document).ready(function () {
   var selectbox = "<label class='label-control'>Chart Type</label><select name='charttype' id='charttype' class='select-control'>";
   var option2 = "";
   chartData.ChartTypes.forEach(item => {
-    debugger;
     var selected = (item.value=="BarChart") ? 'selected' : '';
     selectbox += "<option value='" + item.value + "' data-format='" + item.dataFormat + "' data-package='" + item.packages + "' " +selected + ">" + item.displayName + "</option>";
   });
