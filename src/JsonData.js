@@ -93,6 +93,54 @@ export const ChartInputData = {
     ],
 
 
+    ActiveUsersData: [
+        ['Year', 'Genre', 'Romance'],
+        ['2015', 8, 2],
+        ['2020', 25, 2],
+        ['2025', 26, 2],
+        ['2030', 17, 2],
+        ['2015', 28, 2],
+        ['2020', 25, 2],
+        ['2030', 27, 2],
+        ['2015', 28, 2],
+        ['2020', 25, 2],
+        ['2015', 18, 2],
+        ['2020', 25, 2],
+        ['2030', 17, 2],
+        ['2015', 18, 2],
+        ['2020', 25, 2],
+        ['2025', 26, 2],
+        ['2025', 26, 2],
+        ['2035', 19, 2]
+
+    ],
+
+
+    PerformanceChartData: [
+        ['Year', 'Genre'],
+        ['2025', 1126,],
+        ['2030', 1127,],
+        ['2025', 1126,],
+        ['2030', 1127,],
+        ['2025', 1126,],
+        ['2030', 1126,],
+        ['2025', 1127,],
+        ['2030', 1126,]       
+    ],
+
+    GoalValueData: [
+        ['Year', 'Genre'],
+        ['2025', 0,],
+        ['2030', 0,],
+        ['2025', 0,],
+        ['2030', 0,],
+        ['2025', 0,],
+        ['2030', 0,],
+        ['2025', 0,],
+        ['2030', 0,]       
+    ],
+
+
 
 
 
@@ -252,11 +300,11 @@ export const ChartInputData = {
         ['2007', 1030, 540]
     ],
     LineChartData: [
-        ['Year', 'Monthly', 'weekly','Daily'],
-        ['2004', 1000, 400,240],
-        ['2005', 1170, 460,500],
-        ['2006', 660, 1120,700],
-        ['2007', 1030, 540,800]
+        ['Year', 'Monthly', 'weekly', 'Daily'],
+        ['2004', 1000, 400, 240],
+        ['2005', 1170, 460, 500],
+        ['2006', 660, 1120, 700],
+        ['2007', 1030, 540, 800]
     ],
     TreeMapData: [
         ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
@@ -346,6 +394,15 @@ export const ChartInputData = {
         ['/blog', '1,756', '$945'],
         ['/blog/creed-march-madness', '3,898', '$45']
     ],
+
+    ActiveUsersGridData: [
+        ['Top Active pages', 'Active Users'],
+        ['/creed-fragrances-250ml-flacons', '456'],
+        ['/press', '856'],
+        ['/house-of-creed-history-and-lineage', '456'],
+        ['/blog/creed-march-madness', '898']
+    ],
+
     CalendarData: [
         ['Date', 'Won/Loss'],
         [new Date(2012, 3, 13), 37032],
@@ -376,7 +433,7 @@ export const ChartOptionsData = {
         bar: { groupWidth: "75%" },
         legend: { position: "none" },
         isStacked: true
-        
+
     },
     ColumnChartData: {
         bar: { groupWidth: "90%" },
@@ -386,13 +443,77 @@ export const ChartOptionsData = {
                 1: { side: 'right' } // Top x-axis.
             }
         },
-        isStacked: true,
-        // series: {
-        //     0: {targetAxisIndex: 0},
-        //     1: {targetAxisIndex: 1},
-        //     2: {targetAxisIndex: 1}
-        // }​   
+        isStacked: true,       
     },
+
+    PerformanceChartData: {
+        legend: { position: "none" },
+        bar: { groupWidth: "80%" },
+        height:'100px',
+        vAxis: {
+            gridlines: {
+                color: 'none'
+            },
+            baselineColor: "none",
+            textPosition: 'none'
+        },
+        hAxis: {
+            gridlines: {
+                color: 'none'
+            },
+
+
+            textPosition: 'none'
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    drawBorder: false,
+                }
+            }]
+        },
+        
+        backgroundColor: "transparent",      
+    },
+
+
+    ActiveUsersData: {
+        legend: { position: "none" },
+        bar: { groupWidth: "80%" },
+        width:'400px',
+        vAxis: {
+            gridlines: {
+                color: 'none'
+            },
+            baselineColor: "none",
+            textPosition: 'none'
+        },
+        hAxis: {
+            gridlines: {
+                color: 'none'
+            },
+
+
+            textPosition: 'none'
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    drawBorder: false,
+                }
+            }]
+        },
+        chartArea: {
+            left:0,
+            top:0,
+            right:0,
+            bottom:0
+        },
+        backgroundColor: "transparent",
+        colors: ['#8EB6F9', '#DAE7FD'],
+        isStacked: true,
+    },
+
     ComboChartData: {
         title: 'Monthly Coffee Production by Country',
         vAxis: { title: 'Cups' },
@@ -484,7 +605,7 @@ export const ChartOptionsData = {
         //title: 'Sessions by device',
         pieHole: 0.7,
         legend: { position: "none" },
-        pieSliceText:"none"
+        pieSliceText: "none"
     },
     WaterfallChartData: {
         legend: 'none',
@@ -496,6 +617,14 @@ export const ChartOptionsData = {
         isCandleStick: true
     },
     TableData: { showRowNumber: false, width: '100%', height: '100%' },
+
+    ActiveUsersGridData: { 
+        showRowNumber: false,
+         width: '100%',
+        height: '100%',
+        backgroundColor: "transparent",
+         },
+
     CalendarData: {
         title: "Red Sox Attendance",
         height: 350,

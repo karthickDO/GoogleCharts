@@ -87,7 +87,46 @@ new DrawChart(lineChartObj);
 
 
 
-// linechart
+// Active user chart
+var ActiveUsersChartObj = {
+  type:"ColumnChart",
+  data: chartData.ChartInputData.ActiveUsersData,
+  chartoptions: chartData.ChartOptionsData.ActiveUsersData,
+  container:"ActiveUsersChart"
+}
+new DrawChart(ActiveUsersChartObj);
+
+
+var GoalCompletionChartObj = {
+  type:"ColumnChart",
+  data: chartData.ChartInputData.PerformanceChartData,
+  chartoptions: chartData.ChartOptionsData.PerformanceChartData,
+  container:"GoalCompletion"
+}
+new DrawChart(GoalCompletionChartObj);
+
+
+var GoalCompletionChartObj = {
+  type:"ColumnChart",
+  data: chartData.ChartInputData.PerformanceChartData,
+  chartoptions: chartData.ChartOptionsData.PerformanceChartData,
+  container:"GoalConversion"
+}
+new DrawChart(GoalCompletionChartObj);
+
+
+
+var GoalValueChartObj = {
+  type:"ColumnChart",
+  data: chartData.ChartInputData.GoalValueData,
+  chartoptions: chartData.ChartOptionsData.PerformanceChartData,
+  container:"GoalValue"
+}
+new DrawChart(GoalValueChartObj);
+
+
+
+// Table chart
 var tabelChartObj = {
   type:"Table",
   data: chartData.ChartInputData.TableData,
@@ -96,6 +135,20 @@ var tabelChartObj = {
   container:"Table-chart"
 }
 new DrawChart(tabelChartObj);
+
+
+
+// Active user grid chart
+var ActiveUsersGridObj = {
+  type:"Table",
+  data: chartData.ChartInputData.ActiveUsersGridData,
+  chartoptions: chartData.ChartOptionsData.ActiveUsersGridData,
+  loadPackage: { 'packages': ['table']},
+  container:"ActiveUsersGrid"
+}
+new DrawChart(ActiveUsersGridObj);
+
+
 
 
 

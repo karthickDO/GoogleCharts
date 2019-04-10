@@ -23,18 +23,12 @@ export class DrawChart {
         var _this = this;
         options.chartoptions.titleTextStyle= {
             color: '#A1A1A1',
-            fontWeight: "normal",
+            bold: false,
         }
         this.$container = $("#chart_div");
 
-        options.chartoptions.colors= [];
-
-        var opacity  = 1;
-        for(var i = 0;i < options.data[0].length;i++){
-            options.chartoptions.colors.push('rgba(1,1,1,0.3)'.replace(/[^,]+(?=\))/, opacity))
-            opacity= opacity-0.2;
-        }
-          options.chartoptions.colors= ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
+     
+          options.chartoptions.colors= options.chartoptions.colors || ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC'];
 
         options.chartoptions =  Object.assign(options.chartoptions , _this.chartoptions);
         GoogleCharts.load(drawChart,this.loadPackage);
