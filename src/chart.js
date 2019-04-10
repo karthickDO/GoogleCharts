@@ -21,15 +21,12 @@ export class DrawChart {
 
     _init(options) {
         var _this = this;
-        options.chartoptions.titleTextStyle= {
+        options.chartoptions.titleTextStyle = options.chartoptions.titleTextStyle || {
             color: '#A1A1A1',
             bold: false,
         }
-        this.$container = $("#chart_div");
-
-     
-          options.chartoptions.colors= options.chartoptions.colors || ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC'];
-
+        options.chartoptions.colors = options.chartoptions.colors || ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
+        
         options.chartoptions =  Object.assign(options.chartoptions , _this.chartoptions);
         GoogleCharts.load(drawChart,this.loadPackage);
     
@@ -67,8 +64,8 @@ export class DrawChart {
                 legItem[i].innerHTML = '<div class="legendMarker"><span class="legend-icon" style="background-color:' + colors[i] + ';"></span> <span style="color:' + colors[i] + ';">' + label + ' ' + percent +'%</span></div>';
     
                 legend.appendChild(legItem[i]);
+            }
         }
-    }
     }
 }   
 

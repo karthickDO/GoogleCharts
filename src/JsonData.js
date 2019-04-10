@@ -190,9 +190,9 @@ export const ChartInputData = {
     ],
     DonutChartData: [
         ['Device', 'usage'],
-        ['Mobile', 11],
-        ['Desktop', 2],
-        ['Tablet', 2]
+        ['Mobile', 70.1],
+        ['Desktop', 25.9],
+        ['Tablet', 4]
     ],
     ScatterChartData: [
         ['Task', 'Hours per Day'],
@@ -492,8 +492,6 @@ export const ChartOptionsData = {
             gridlines: {
                 color: 'none'
             },
-
-
             textPosition: 'none'
         },
         scales: {
@@ -553,6 +551,11 @@ export const ChartOptionsData = {
     },
     GeoChartData: {
         title: 'Sessions by Country',
+        titleTextStyle:{
+            color: '#A1A1A1',
+            fontWeight: "normal",
+        },
+        color: ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
     },
     HistogramData: {
         title: 'Lengths of dinosaurs, in meters',
@@ -561,15 +564,23 @@ export const ChartOptionsData = {
     LineChartData: {
         //title: 'Active Users',
         legend: { position: 'right' },
-        colors: ['black', 'blue', 'red', 'green', 'yellow', 'gray'],
+        titleTextStyle:{
+            color: '#A1A1A1',
+            fontWeight: "normal",
+        },
+        color: ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
     },
     LineChartDashedData: {
         //title: 'Active Users',
-        legend: { position: 'right' },
-        colors: ['black', 'blue', 'red', 'green', 'yellow', 'gray'],
+        legend: { position: 'none' },
         series: {
             0: { lineDashStyle: [2, 2] }
         },
+        titleTextStyle:{
+            color: '#A1A1A1',
+            fontWeight: "normal",
+        },
+        color: ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
     },
     TreeMapData: {
         minColor: '#f00',
@@ -603,9 +614,14 @@ export const ChartOptionsData = {
     },
     DonutChartData: {
         //title: 'Sessions by device',
+        titleTextStyle:{
+            color: '#A1A1A1',
+            fontWeight: "normal",
+        },
         pieHole: 0.7,
         legend: { position: "none" },
-        pieSliceText: "none"
+        pieSliceText:"none",
+        color: ['#4285F4', '#45a5f5', '#93d5ed']
     },
     WaterfallChartData: {
         legend: 'none',
