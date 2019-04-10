@@ -34,6 +34,18 @@ var chartObj = {
 new DrawChart(chartObj);
 
 
+// Geo bar load  Barchart
+var chartObj = {
+  type: "BarChart",
+  data: chartData.ChartInputData.GeoBarChartData,
+  chartoptions: chartData.ChartOptionsData.GeoBarChartData,
+  container:"Geo-bar-chart",
+}
+
+new DrawChart(chartObj);
+
+
+
 // Donut chart
 var DonutChartObj = {
   type:"PieChart",
@@ -57,7 +69,7 @@ new DrawChart(columnStackedObj);
 
 // Geo chart
 var geoChartObj = {
-  type:"ColumnChart",
+  type:"GeoChart",
   data: chartData.ChartInputData.GeoChartData,
   chartoptions: chartData.ChartOptionsData.GeoChartData,
   container:"Geo-chart",

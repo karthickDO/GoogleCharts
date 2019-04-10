@@ -31,6 +31,14 @@ export const ChartInputData = {
         ['2016', 290, 378, 300],
         ['2017', 400, 540, 350]
     ],
+    GeoBarChartData: [
+        ['States', 'Percentage'],
+        ['United States', 100],
+        ['Canada', 20],
+        ['United Kingdom', 10],
+        ['India', 7],
+        ['Mexico', 5]
+    ],
 
 
     BarChartMonthData: [
@@ -435,6 +443,17 @@ export const ChartOptionsData = {
         isStacked: true
 
     },
+    GeoBarChartData:{
+        bar: { groupWidth: "75%" },
+        legend: { position: "none" },
+        isStacked: true,
+        vAxis: {
+            textStyle:{
+                color: '#9e9e9e',
+                fontSize: '14px'
+            }
+        },
+    },
     ColumnChartData: {
         bar: { groupWidth: "90%" },
         legend: { position: "bottom" },
@@ -555,6 +574,7 @@ export const ChartOptionsData = {
             color: '#A1A1A1',
             fontWeight: "normal",
         },
+        legend: 'none',
         color: ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
     },
     HistogramData: {
