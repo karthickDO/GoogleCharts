@@ -62,13 +62,9 @@ body{
     display: inline-block;
     padding: 0 8px;
     text-align: center;
+    width:33%;
 }
-.legend-icon {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
+
 .ga-width-100-percent{
     width: 100% !important;
 }
@@ -452,4 +448,38 @@ p.ga-big-font {
     max-height: 100%;
     box-sizing: border-box;
     text-align: right;
+}
+
+.legend{
+    text-align: center;
+    position: relative;
+    top: -24px;
+    color: gray;
+}
+
+.legend-icon{
+    font-size: 24px;
+}
+
+.legend-title{
+font-size:12px;
+}
+.legend-percentage{
+    font-size: 18px;
+}
+.legend .ga-growtn-decrease{
+    font-size: 12px;
+    width: 47px;
+    margin: 0 auto;
+}
+
+.ga-growtn-decrease.increase{
+    color:green;
+}
+
+.ga-growtn-decrease.increase .point{
+    border-left: 4px solid green;
+}
+.ga-growtn-decrease.increase .line{
+    background:green;
 }

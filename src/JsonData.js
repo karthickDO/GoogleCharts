@@ -569,13 +569,10 @@ export const ChartOptionsData = {
         isCandleStick: true
     },
     GeoChartData: {
-        title: 'Sessions by Country',
-        titleTextStyle:{
-            color: '#A1A1A1',
-            fontWeight: "normal",
-        },
+      
         legend: 'none',
-        color: ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC']
+        // color: ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC'],
+        region: 'IT', displayMode: 'markers', colorAxis: {colors: ['green', 'blue']}, legend: 'none',
     },
     HistogramData: {
         title: 'Lengths of dinosaurs, in meters',
@@ -584,6 +581,10 @@ export const ChartOptionsData = {
     LineChartData: {
         //title: 'Active Users',
         legend: { position: 'right' },
+        vAxes: {
+            0: {textPosition: 'left'},
+            1: {textPosition: 'right'},
+        },
         titleTextStyle:{
             color: '#A1A1A1',
             fontWeight: "normal",

@@ -53,6 +53,11 @@ export class DrawChart {
             var legend = document.getElementById("legend");
             var legItem = [];
             var colors = ['#3267D6', '#4285F4', '#73A4F7', '#9FC2F9', '#CFE0FC'];
+             var iconObj= {
+                 Mobile:'fa fa-mobile',
+                 Desktop:'fa fa-desktop',
+                 Tablet: 'fa fa-tablet'
+             }
             for (var i = 0; i < data.getNumberOfRows(); i++) {
                 var label = data.getValue(i, 0);
                 var value = data.getValue(i, 1);
@@ -61,7 +66,10 @@ export class DrawChart {
                 // This will create legend list for the display
                 legItem[i] = document.createElement('li');
                 legItem[i].id = 'legend_' + data.getValue(i, 0);
-                legItem[i].innerHTML = '<div class="legendMarker"><span class="legend-icon" style="background-color:' + colors[i] + ';"></span> <span style="color:' + colors[i] + ';">' + label + ' ' + percent +'%</span></div>';
+                legItem[i].innerHTML = '<div><i class="legend-icon ' + iconObj[label] +'" style="color:'+ colors[i]+'" aria-hidden="true"></i></div>'+
+                            '<div class="legend-title"><span>' + label +'</span></div>'+
+                            '<div class="legend-percentage"><span>' + percent +'%</span></div>';
+                 
     
                 legend.appendChild(legItem[i]);
             }
